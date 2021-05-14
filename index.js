@@ -20,8 +20,14 @@ app.get('/', (req,res) => {
 // Importo la ruta de los participantes
 const participanteRoutes = require('./src/routes/participante.route');
 
+// Importo la ruta de los torneos
+const torneosRoutes = require('./src/routes/torneo.route');
+
 // Creo la ruta de los participantes
 app.use('/api/v1/participante', participanteRoutes);
+
+// Creo la ruta de obtener los torneos
+app.use('/api/v1/torneos', torneosRoutes);
 
 // Listener del puerto
 app.listen(port, () => {

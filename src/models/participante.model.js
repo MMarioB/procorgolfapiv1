@@ -36,7 +36,7 @@ Participante.getAllParticipantes = (result) =>{
 
 //get participante by Torneos
 Participante.getParticipanteByTorneo = (torneo, result) =>{
-    conexion.query('SELECT * FROM golf WHERE torneo=?', torneo, (err, res)=>{
+    conexion.query('SELECT * FROM golf INNER JOIN numero_prueba ON golf.numero_prueba = numero_prueba.id_nprueba INNER JOIN resultado ON golf.resultado = resultado.id_resultado INNER JOIN test ON golf.test = test.id_test WHERE torneo=?', torneo, (err, res)=>{
         if(err){
             console.log('Error participantes', err);
             result(null,err);
